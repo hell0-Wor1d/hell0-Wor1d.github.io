@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parrainage RED!</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/A.bootstrap.css.pagespeed.cf.laZJ-JbHjf.css">
+<!--Main styles-->
+<link rel="stylesheet" type="text/css" href="css/main.css%2badaptive.css%2bpushy.css%2bfont-awesome.css%2banimate.css.pagespeed.cc.7Xi885fzpN.css">
+<!--Adaptive styles-->
+
+<!--Swipe menu-->
+
+<!--fonts-->
+
+<!--animation css-->
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body class="promo">
+
+  <!-- Site Overlay -->
+  <div class="site-overlay"></div>
+  <div id="container">
+    <div class="top_promo_block" id="promo_head">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="header_promo">
+              <img src="img/start/redbysfr-hd.png" alt="#">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="start_descrition">
+        <h1>bienvenue sur mon espace de parrainage!<span></span></h1>
+        <span>Saisissez votre mail pour bénéficier d'un mois gratuit.</span>
+        <div class="search_promo">
+          <div class="input-group">
+            <input id="mailinput" type="text" class="form-control" placeholder="Votre mail ici" aria-label="...">
+            <div class="input-group-btn btn_promo_search">
+              <button id="submit" type="button" class="btn btn-success">Envoyer mon code</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+<!--
+#################################
+- SCRIPT FILES -
+#################################
+-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js.pagespeed.jm.YSzgc-BSX9.js"></script>
+<!--scroll animate block-->
+<script src="js/wow.min.js%2ball_scr.js%2bbootstrap.min.js%2bmap_index.js%2binfobox.js.pagespeed.jc.7IN7LgSLkU.js"></script><script>eval(mod_pagespeed_Qq4LcoJyor);</script>
+<!--Other main scripts-->
+<script>eval(mod_pagespeed_CnZba$5bP0);</script>
+<!--Bootstrap js-->  
+<script>eval(mod_pagespeed_0_yJSgiuEg);</script>
+
+<script type="text/javascript">
+  "use strict";
+  setHeiHeight();
+
+  // On réveille le backend
+  $.ajax({
+    method: "GET",
+      url: "https://bot-parrainage-sfr.herokuapp.com/"
+    });
+
+  $(window).resize(setHeiHeight);
+
+  $("button#submit").on('click', function() {
+    var mail = $("input#mailinput").val();
+    if (mail == "" || mail.indexOf('@') < 0) {
+      alert('Mail non valide !');
+      return;
+    }
+
+    var txtSubmit = $("button#submit").text();
+    $("button#submit").text('Chargement ...')
+    $.ajax({
+      method: "GET",
+      url: "https://bot-parrainage-sfr.herokuapp.com/parrainage.sfr/" + mail
+    }).done(function(res) {
+        if (res == "success")
+          alert('La demande à été validé !');
+        else
+          alert('Une erreur c\'est produite lors de la demande de parainage !');
+
+        $("input#mailinput").val('');
+        $("button#submit").text(txtSubmit);
+    });
+  });
+
+  </script>
+
+</body>
+</html>
