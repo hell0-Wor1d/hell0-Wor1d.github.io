@@ -79,7 +79,7 @@
   // On réveille le backend
   $.ajax({
     method: "GET",
-      url: "https://bot-parrainage-sfr.herokuapp.com/"
+      url: "https://parrainage-bot.herokuapp.com/"
     });
 
   $(window).resize(setHeiHeight);
@@ -95,7 +95,7 @@
     $("button#submit").text('Chargement ...')
     $.ajax({
       method: "GET",
-      url: "https://bot-parrainage-sfr.herokuapp.com/parrainage.sfr/" + mail
+      url: "https://parrainage-bot.herokuapp.com/parrainage.sfr/" + mail
     }).done(function(res) {
         if (res == "success")
           alert('La demande à été validé !');
