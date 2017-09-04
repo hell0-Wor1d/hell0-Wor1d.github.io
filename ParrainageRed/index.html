@@ -97,7 +97,7 @@
       method: "GET",
       url: "https://parrainage-bot.herokuapp.com/parrainage.sfr/" + mail
     }).done(function(res) {
-        if (res == "success")
+        if (res == true)
           alert('La demande à été validé !');
         else
           alert('Une erreur c\'est produite lors de la demande de parainage !');
